@@ -98,6 +98,23 @@ body {
 	background-color:#D7E3FD;
 }
 
+main {
+	margin:auto;
+	width:60%;
+	max-width:960px;
+	min-width:700px;
+	}
+main h1{
+text-indent: 100%;
+white-space: nowrap;
+overflow: hidden;
+background:url(../img/palatino-consulting.png) no-repeat;
+height:100px;
+margin:5%;
+}
+main article {
+	background:rgba(249,249,249,0.75);	
+}
 
 
 
