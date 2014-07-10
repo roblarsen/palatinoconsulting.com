@@ -1,0 +1,22 @@
+@media only screen and (max-width: 960px) {
+	body {
+		background-size:1800px 1200px;
+	}
+
+	main {
+		margin:auto;
+		width:80%;
+		max-width:800px;
+		min-width:480px;
+	}
+	main h1{
+	
+	}
+	main article p {
+	
+	}
+	footer {
+	
+	}
+
+}
