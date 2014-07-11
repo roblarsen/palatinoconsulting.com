@@ -15,11 +15,29 @@
   <header>
     <h1><a href="/">Palatino Consulting</a></h1>
   </header>
-  <article>
-    <p>Palatino Consulting is a small, Boston-based firm specializing in modern, accessible, widely compatible front-end web development</p>
-    <p>Founded by Rob Larsen in 2014, Palatino makes sense of modern web development by mixing deep technical knowledge with the practical experience earned over many years spent helping some of the world's largest companies. </p>
-    <p>If you're looking for help with front end development; HTML/CSS/JavaScript training; front end development standards development or anything else that will help you navigate the sometiems scary world of the modern web, you've come to the right place. </p>
-    <p>Learn more <a href="about.html">about us</a> or <a href="contact.html">contact us</a> to start the conversation.</p>
+  <article id="contact">
+    <h1>Contact US</h1>
+    <form method="post" action="contactengine.php" class="clearfix">
+      <div class="form-item">
+        <label for="Name">Name:</label>
+        <input type="text" name="Name" id="Name" required >
+      </div>
+      <div class="form-item">
+        <label for="Email">Email:</label>
+        <input name="Email" type="email" id="Email" required>
+      </div>
+      <div class="form-item">
+        <label for="Phone">Phone:</label>
+        <input type="phone" name="Phone" id="Phone" >
+      </div>
+      <div class="form-item">
+        <label for="Message">Message:</label>
+        <textarea name="Message" id="Message" required></textarea>
+      </div>
+      <div>
+        <input type="submit" name="submit" value="Submit" class="submit-button" />
+      </div>
+    </form>
     <footer> <small>&copy; Palatino Consulting, LLC</small> </footer>
   </article>
 </main>
