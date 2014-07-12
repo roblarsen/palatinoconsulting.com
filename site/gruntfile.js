@@ -1,63 +1,64 @@
 module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON("package.json"),
-    concat: {
-      options: {
-        separator: ";"
-      },
-      js: {
-        src: ["src/js/vendor/fastclick.js","src/js/vendor/jquery-1.11.1.min.js","src/js/main.js"],
-        dest: "pub/js/script.js"
-      },
-      css: {
-        src: ["src/css/normalize.css","src/css/main.css"],
-        dest: "pub/css/styles.css"
+    concat:{
+      dist: {
+        src: ["src/css/normalize.css", "src/css/main.css", "src/css/mqs.css"],
+        dest: "pub/css/main.css"
       }
     },
     cssmin: {
       files: {
-        expand : true,
-        src:["pub/css/styles.css"]
+       "pub/css/main.css" : ["pub/css/main.css"] 
       }
     },
     sync: {
       target: {
         files: [
-          { expand: true, cwd: "src/", src: ["js/vendor/*.*"], dest: "pub/", filter: "isFile" },
-          { expand: true, cwd:"src/", src: ["*.html", "*.ico", "img/**/*"], dest: "pub/", filter: "isFile" }
+          { expand: true, cwd:"src/", src: ["*.html", "*.php","*.ico", "img/**/*"], dest: "pub/", filter: "isFile" }
         ]
       }
     },
-    uglify: {
-      js: {
-        files: {
-          "pub/js/script.js": ["pub/js/script.js"]
-        }
+    imagemin: {
+      png: {
+        options: {
+          optimizationLevel: 7
+        },
+        files: [
+          {
+            expand: true,
+            // cwd is "current working directory"
+            cwd: "pub/img/",
+            src: ["**/*.png"],
+            dest: "pub/img/",
+            ext: ".png"
+          }
+        ]
+      },
+      jpg: {
+        options: {
+          progressive: true
+        },
+        files: [
+          {
+            expand: true,
+            cwd: "pub/img/",
+            src: ["**/*.jpg"],
+            dest: "pub/img/",
+            ext: ".jpg"
+          }
+        ]
       }
     },
-    watch: {
-      files: ["src/js/*","src/index.html","src/css/*","gruntfile.js"],
-      tasks: [ "jshint", "clean", "copy" ,"concat", "cssmin", "uglify"]
-    },
-    jshint: {
-      files: ["gruntfile.js", "src/js/main.js"],
+    hashres: {
       options: {
-        passfail:false,
-        maxerr: 100,
-        browser: true,
-        jquery: true,
-        devel: true,
-        bitwise: true,
-        boss:false,
-        trailing:true,
-        sub:true,
-        curly:true,
-        eqeqeq:true,
-        forin:true,
-        freeze:true,
-        indent:2,
-        quotmark:"double",
-        unused:true
+        encoding: "utf8"
+      },
+      prod: {
+        src: [
+          "pub/css/main.css"
+        ],
+        dest: ["pub/index.html","pub/about.html","pub/contact.html","pub/contactthanks.php"]
       }
     }
   });
@@ -72,5 +73,5 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks("grunt-contrib-imagemin");
   grunt.loadNpmTasks("grunt-hashres");
   grunt.loadNpmTasks("grunt-replace");
-  grunt.registerTask("default", [ "jshint", "sync" ,"concat", "cssmin", "uglify"]);
+  grunt.registerTask("default", [ "sync" ,"concat" ,"cssmin", "imagemin","hashres"]);
 };

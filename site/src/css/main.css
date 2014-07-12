@@ -92,7 +92,7 @@ textarea {
    ========================================================================== */
 body {
 	font-family: Tahoma, Verdana, Segoe, sans-serif;
-	background-image:url(../img/background.jpg);
+	background-image:url(http://diqmvuv8zy5jv.cloudfront.net/wp-content/uploads/2014/07/background1.jpg);
 	background-position:center top;
 	background-size:cover;
 	background-repeat:no-repeat;
@@ -112,7 +112,7 @@ main header h1{
 	text-indent: 100%;
 	white-space: nowrap;
 	overflow: hidden;
-	background:url(../img/palatino-consulting.png) no-repeat;
+	background:url(http://diqmvuv8zy5jv.cloudfront.net/wp-content/uploads/2014/07/palatino-consulting.png) no-repeat;
 	margin:5% 0;
 	width:588px;
 	height:80px;
