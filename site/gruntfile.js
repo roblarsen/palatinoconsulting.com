@@ -19,37 +19,6 @@ module.exports = function (grunt) {
         ]
       }
     },
-    imagemin: {
-      png: {
-        options: {
-          optimizationLevel: 7
-        },
-        files: [
-          {
-            expand: true,
-            // cwd is "current working directory"
-            cwd: "pub/img/",
-            src: ["**/*.png"],
-            dest: "pub/img/",
-            ext: ".png"
-          }
-        ]
-      },
-      jpg: {
-        options: {
-          progressive: true
-        },
-        files: [
-          {
-            expand: true,
-            cwd: "pub/img/",
-            src: ["**/*.jpg"],
-            dest: "pub/img/",
-            ext: ".jpg"
-          }
-        ]
-      }
-    },
     hashres: {
       options: {
         encoding: "utf8"
@@ -70,8 +39,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-contrib-cssmin");
   grunt.loadNpmTasks("grunt-contrib-copy");
-  grunt.loadNpmTasks("grunt-contrib-imagemin");
   grunt.loadNpmTasks("grunt-hashres");
   grunt.loadNpmTasks("grunt-replace");
-  grunt.registerTask("default", [ "sync" ,"concat" ,"cssmin", "imagemin","hashres"]);
+  grunt.registerTask("default", [ "sync" ,"concat" ,"cssmin", "hashres"]);
 };
